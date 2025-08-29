@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api import plaid
 
 app = FastAPI()
+
+app.include_router(plaid.router)
 
 # Allow your frontend (Expo) and Netlify domain
 origins = [
